@@ -4,6 +4,9 @@ plugins {
 
 golang {
     packagePath = 'github.com/grumbler/Burrow'
+    goVersion = '1.8.3'
+    buildMode = 'REPRODUCIBLE'
+    goExecutable = 'IGNORE_LOCAL'
 }
 
 dependencies {
@@ -14,5 +17,9 @@ dependencies {
         build name:'gopkg.in/gcfg.v1', version:'0ef1a8547f99b94fac9af5377dd72febba18f37c', transitive:false
         build name:'github.com/pborman/uuid', version:'ca53cad383cad2479bbba7f7a1a05797ec1386e4', transitive:false
         build name:'github.com/klauspost/crc32', version:'1bab8b35b6bb565f92cbc97939610af9369f942a', transitive:false
+
+        build name:'github.com/eapache/go-resiliency', version:'b1fe83b5b03f624450823b751b662259ffc6af70', transitive:false
+        build name:'github.com/eapache/queue', version:'44cc805cf13205b55f69e14bcb69867d1ae92f98', transitive:false
+        build name:'github.com/golang/snappy', version:'553a641470496b2327abcac10b36396bd98e45c9', transitive:false
     }
 }

@@ -14,6 +14,21 @@ dependencies:
     url: "https://github.com/cihub/seelog.git"
     transitive: false
   - vcs: "git"
+    name: "github.com/eapache/go-resiliency"
+    commit: "b1fe83b5b03f624450823b751b662259ffc6af70"
+    url: "https://github.com/eapache/go-resiliency.git"
+    transitive: false
+  - vcs: "git"
+    name: "github.com/eapache/queue"
+    commit: "44cc805cf13205b55f69e14bcb69867d1ae92f98"
+    url: "https://github.com/eapache/queue.git"
+    transitive: false
+  - vcs: "git"
+    name: "github.com/golang/snappy"
+    commit: "553a641470496b2327abcac10b36396bd98e45c9"
+    url: "https://github.com/golang/snappy.git"
+    transitive: false
+  - vcs: "git"
     name: "github.com/klauspost/crc32"
     commit: "1bab8b35b6bb565f92cbc97939610af9369f942a"
     url: "https://github.com/klauspost/crc32.git"
