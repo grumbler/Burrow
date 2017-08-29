@@ -1,0 +1,18 @@
+plugins {
+    id 'com.github.blindpirate.gogradle' version '0.7.0'
+}
+
+golang {
+    packagePath = 'github.com/grumbler/Burrow'
+}
+
+dependencies {
+    golang {
+        build name:'github.com/samuel/go-zookeeper/zk', version:'1d7be4effb13d2d908342d349d71a284a7542693', transitive:false
+        build name:'github.com/Shopify/sarama', version:'4ba9bba6adb6697bcec3841e1ecdfecf5227c3b9', transitive:false
+        build name:'github.com/cihub/seelog', version:'92dc4b8b540607b8187cc2f95cac200211dcd745', transitive:false
+        build name:'gopkg.in/gcfg.v1', version:'0ef1a8547f99b94fac9af5377dd72febba18f37c', transitive:false
+        build name:'github.com/pborman/uuid', version:'ca53cad383cad2479bbba7f7a1a05797ec1386e4', transitive:false
+        build name:'github.com/klauspost/crc32', version:'1bab8b35b6bb565f92cbc97939610af9369f942a', transitive:false
+    }
+}

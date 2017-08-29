@@ -6,3 +6,6 @@ log
 .idea
 Burrow.iml
 tmp
+.gogradle/
+.gradle/
+vendor/
