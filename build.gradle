@@ -1,10 +1,18 @@
 plugins {
-    id 'com.github.blindpirate.gogradle' version '0.7.0'
+    id 'com.github.blindpirate.gogradle' version '0.8.1'
+}
+
+repositories{
+    golang {
+        root 'github.com/linkedin/Burrow'
+        url 'https://github.com/grumbler/Burrow.git'
+    }
 }
 
 golang {
-    packagePath = 'github.com/grumbler/Burrow'
-    goVersion = '1.8.3'
+    packagePath = 'github.com/linkedin/Burrow'
+//    goVersion = '1.8.3'
+    goVersion = '1.9.3'
     buildMode = 'REPRODUCIBLE'
     goExecutable = 'IGNORE_LOCAL'
 }
@@ -15,15 +23,39 @@ build {
 
 dependencies {
     golang {
-        build name:'github.com/samuel/go-zookeeper/zk', version:'1d7be4effb13d2d908342d349d71a284a7542693', transitive:false
-        build name:'github.com/Shopify/sarama', version:'4ba9bba6adb6697bcec3841e1ecdfecf5227c3b9', transitive:false
-        build name:'github.com/cihub/seelog', version:'92dc4b8b540607b8187cc2f95cac200211dcd745', transitive:false
-        build name:'gopkg.in/gcfg.v1', version:'0ef1a8547f99b94fac9af5377dd72febba18f37c', transitive:false
-        build name:'github.com/pborman/uuid', version:'ca53cad383cad2479bbba7f7a1a05797ec1386e4', transitive:false
-        build name:'github.com/klauspost/crc32', version:'1bab8b35b6bb565f92cbc97939610af9369f942a', transitive:false
-
-        build name:'github.com/eapache/go-resiliency', version:'b1fe83b5b03f624450823b751b662259ffc6af70', transitive:false
-        build name:'github.com/eapache/queue', version:'44cc805cf13205b55f69e14bcb69867d1ae92f98', transitive:false
-        build name:'github.com/golang/snappy', version:'553a641470496b2327abcac10b36396bd98e45c9', transitive:false
+        build(['name':'github.com/OneOfOne/xxhash', 'commit':'4e9e81466dc37c9fd94ce9ecf42020ef54112203', 'tag':'v1.2.1', 'subpackages':['...']])
+        build(['name':'github.com/Shopify/sarama', 'commit':'3b1b38866a79f06deddf0487d5c27ba0697ccd65', 'tag':'v1.15.0', 'subpackages':['...']])
+        build(['name':'github.com/davecgh/go-spew', 'commit':'346938d642f2ec3594ed81d874461961cd0faa76', 'tag':'v1.1.0', 'subpackages':['spew']])
+        build(['name':'github.com/eapache/go-resiliency', 'commit':'6800482f2c813e689c88b7ed3282262385011890', 'tag':'v1.0.0', 'subpackages':['breaker']])
+        build(['name':'github.com/eapache/go-xerial-snappy', 'commit':'bb955e01b9346ac19dc29eb16586c90ded99a98c', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/eapache/queue', 'commit':'ded5959c0d4e360646dc9e9908cff48666781367', 'tag':'v1.0.2', 'subpackages':['...']])
+        build(['name':'github.com/fsnotify/fsnotify', 'commit':'629574ca2a5df945712d3079857300b5e4da0236', 'tag':'v1.4.2', 'subpackages':['...']])
+        build(['name':'github.com/golang/snappy', 'commit':'553a641470496b2327abcac10b36396bd98e45c9', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/hashicorp/hcl', 'commit':'23c074d0eceb2b8a5bfdbb271ab780cde70f05a8', 'branch':'master', 'subpackages':['...', 'hcl/ast', 'hcl/parser', 'hcl/scanner', 'hcl/strconv', 'hcl/token', 'json/parser', 'json/scanner', 'json/token']])
+        build(['name':'github.com/julienschmidt/httprouter', 'commit':'e1b9828bc9e5904baec057a154c09ca40fe7fae0', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/karrick/goswarm', 'commit':'f30b893aa41460885e674be9f82fd79190e0759a', 'tag':'v1.4.7', 'subpackages':['...']])
+        build(['name':'github.com/magiconair/properties', 'commit':'be5ece7dd465ab0765a9682137865547526d1dfb', 'tag':'v1.7.3', 'subpackages':['...']])
+        build(['name':'github.com/mitchellh/mapstructure', 'commit':'06020f85339e21b2478f756a78e295255ffa4d6a', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/pborman/uuid', 'commit':'e790cca94e6cc75c7064b1332e63811d4aae1a53', 'tag':'v1.1', 'subpackages':['...']])
+        build(['name':'github.com/pelletier/go-toml', 'commit':'16398bac157da96aa88f98a2df640c7f32af1da2', 'tag':'v1.0.1', 'subpackages':['...']])
+        build(['name':'github.com/pierrec/lz4', 'commit':'08c27939df1bd95e881e2c2367a749964ad1fceb', 'tag':'v1.0.1', 'subpackages':['...']])
+        build(['name':'github.com/pierrec/xxHash', 'commit':'f051bb7f1d1aaf1b5a665d74fb6b0217712c69f7', 'tag':'v0.1.1', 'subpackages':['xxHash32']])
+        build(['name':'github.com/pmezard/go-difflib', 'commit':'792786c7400a136282c1664665ae0a8db921c6c2', 'tag':'v1.0.0', 'subpackages':['difflib']])
+        build(['name':'github.com/rcrowley/go-metrics', 'commit':'1f30fe9094a513ce4c700b9a54458bbb0c96996c', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/samuel/go-zookeeper', 'commit':'e6b59f6144beb8570562539c1898a0b1fea34b41', 'branch':'master', 'subpackages':['zk']])
+        build(['name':'github.com/spf13/afero', 'commit':'8d919cbe7e2627e417f3e45c3c0e489a5b7e2536', 'tag':'v1.0.0', 'subpackages':['...', 'mem']])
+        build(['name':'github.com/spf13/cast', 'commit':'acbeb36b902d72a7a4c18e8f3241075e7ab763e4', 'tag':'v1.1.0', 'subpackages':['...']])
+        build(['name':'github.com/spf13/jwalterweatherman', 'commit':'12bd96e66386c1960ab0f74ced1362f66f552f7b', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/spf13/pflag', 'commit':'e57e3eeb33f795204c1ca35f56c44f83227c6e66', 'tag':'v1.0.0', 'subpackages':['...']])
+        build(['name':'github.com/spf13/viper', 'commit':'25b30aa063fc18e48662b86996252eabdcf2f0c7', 'tag':'v1.0.0', 'subpackages':['...']])
+        build(['name':'github.com/stretchr/objx', 'commit':'1a9d0bb9f541897e62256577b352fdbc1fb4fd94', 'branch':'master', 'subpackages':['...']])
+        build(['name':'github.com/stretchr/testify', 'commit':'2aa2c176b9dab406a6970f6a55f513e8a8c8b18f', 'branch':'master', 'subpackages':['assert', 'mock']])
+        build(['name':'go.uber.org/atomic', 'commit':'4e336646b2ef9fc6e47be8e21594178f98e5ebcf', 'tag':'v1.2.0', 'subpackages':['...']])
+        build(['name':'go.uber.org/multierr', 'commit':'3c4937480c32f4c13a875a1829af76c98ca3d40a', 'tag':'v1.1.0', 'subpackages':['...']])
+        build(['name':'go.uber.org/zap', 'commit':'35aad584952c3e7020db7b839f6b102de6271f89', 'tag':'v1.7.1', 'subpackages':['...', 'buffer', 'internal/bufferpool', 'internal/color', 'internal/exit', 'zapcore']])
+        build(['name':'golang.org/x/sys', 'commit':'bf42f188b9bc6f2cf5b8ee5a912ef1aedd0eba4c', 'branch':'master', 'subpackages':['unix']])
+        build(['name':'golang.org/x/text', 'commit':'88f656faf3f37f690df1a32515b479415e1a6769', 'branch':'master', 'subpackages':['internal/gen', 'internal/triegen', 'internal/ucd', 'transform', 'unicode/cldr', 'unicode/norm']])
+        build(['name':'gopkg.in/natefinch/lumberjack.v2', 'commit':'a96e63847dc3c67d17befa69c303767e2f84e54f', 'tag':'v2.1', 'subpackages':['...']])
+        build(['name':'gopkg.in/yaml.v2', 'commit':'eb3733d160e74a9c7e442f435eb3bea458e1d19f', 'branch':'v2', 'subpackages':['...']])
     }
 }
